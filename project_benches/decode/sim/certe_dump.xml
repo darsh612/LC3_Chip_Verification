@@ -1,0 +1,134 @@
+<certe_dump>
+  <instance type=" test_top "> 
+     uvm_test_top 
+  
+     <instance type=" decode_environment "> 
+        decode_environment 
+  
+        <instance type=" decode_in_agent "> 
+           agent_in 
+  
+           <instance type=" decode_in_driver "> 
+              agent_in_driver 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 rsp_port 
+                 <connection>  uvm_test_top.decode_environment.agent_in.sequencer.rsp_export  </connection> 
+              </port> 
+  
+              <port if_type = "uvm_seq_item_pull_port" txn_type = "anonymous"> 
+                 seq_item_port 
+                 <connection>  uvm_test_top.decode_environment.agent_in.sequencer.seq_item_export  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <instance type=" decode_in_monitor "> 
+              agent_in_monitor 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 monitored_ap 
+                 <connection>  uvm_test_top.decode_environment.agent_in.monitored_ap  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+              monitored_ap 
+              <connection>  uvm_test_top.decode_environment.pred.analysis_export  </connection> 
+           </port> 
+  
+           <instance type=" uvm_sequencer "> 
+              sequencer 
+  
+              <export if_type = "uvm_analysis_export" txn_type = "anonymous"> 
+                 rsp_export 
+                 <connection>  uvm_test_top.decode_environment.agent_in.sequencer.sqr_rsp_analysis_fifo.analysis_export  </connection> 
+              </export> 
+  
+              <imp if_type = "uvm_seq_item_pull_imp" txn_type = "anonymous"> 
+                 seq_item_export 
+              </imp> 
+           </instance> 
+  
+        </instance> 
+  
+  
+        <instance type=" decode_out_agent "> 
+           agent_out 
+  
+           <instance type=" decode_out_monitor "> 
+              agent_out_monitor 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 monitored_ap 
+                 <connection>  uvm_test_top.decode_environment.agent_out.monitored_ap  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+              monitored_ap 
+              <connection>  uvm_test_top.decode_environment.sb.actual_analysis_export  </connection> 
+           </port> 
+        </instance> 
+  
+  
+        <instance type=" uvm_component "> 
+           pred 
+  
+           <imp if_type = "uvm_analysis_imp_analysis_export" txn_type = "anonymous"> 
+              analysis_export 
+           </imp> 
+  
+           <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+              pred_out 
+              <connection>  uvm_test_top.decode_environment.sb.expected_analysis_export  </connection> 
+           </port> 
+        </instance> 
+  
+  
+        <instance type=" uvm_scoreboard "> 
+           sb 
+  
+           <imp if_type = "uvm_analysis_imp_actual" txn_type = "anonymous"> 
+              actual_analysis_export 
+           </imp> 
+  
+           <imp if_type = "uvm_analysis_imp_expected" txn_type = "anonymous"> 
+              expected_analysis_export 
+           </imp> 
+        </instance> 
+  
+  
+        <instance type=" uvm_sequencer "> 
+           vsqr 
+  
+           <export if_type = "uvm_analysis_export" txn_type = "anonymous"> 
+              rsp_export 
+              <connection>  uvm_test_top.decode_environment.vsqr.sqr_rsp_analysis_fifo.analysis_export  </connection> 
+           </export> 
+  
+           <imp if_type = "uvm_seq_item_pull_imp" txn_type = "anonymous"> 
+              seq_item_export 
+           </imp> 
+        </instance> 
+  
+     </instance> 
+  
+  
+     <instance type=" print_component "> 
+        print_component 
+  
+        <imp if_type = "uvm_analysis_imp_decode_in_aep" txn_type = "anonymous"> 
+           decode_in_aep 
+        </imp> 
+  
+        <imp if_type = "uvm_analysis_imp_decode_out_aep" txn_type = "anonymous"> 
+           decode_out_aep 
+        </imp> 
+     </instance> 
+  
+  </instance> 
+  
+  </certe_dump>

@@ -1,0 +1,8 @@
+# Test list
+# Format: test name , seed
+test_top , 1234
+load_test , 2759
+store_test , 7493
+branch_test , 1234
+jump_test, 1234
+alu_test, random
